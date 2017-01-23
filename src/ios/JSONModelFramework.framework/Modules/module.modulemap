@@ -1,0 +1,6 @@
+framework module JSONModelFramework {
+  umbrella header "JSONModelFramework.h"
+
+  export *
+  module * { export * }
+}

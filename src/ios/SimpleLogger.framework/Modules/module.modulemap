@@ -1,0 +1,6 @@
+framework module SimpleLogger {
+  umbrella header "SimpleLogger.h"
+
+  export *
+  module * { export * }
+}
