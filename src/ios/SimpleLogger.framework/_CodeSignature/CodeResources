@@ -4,101 +4,71 @@
 <dict>
 	<key>files</key>
 	<dict>
-		<key>Headers/AsyncSocket.h</key>
+		<key>Config.plist</key>
 		<data>
-		O9fhOSWUeTE87UGv9xze7tVHx5I=
+		O+/62mFdrzU/GwNknFovvidTN8g=
 		</data>
-		<key>Headers/DDLog.h</key>
+		<key>Headers/MWLogging.h</key>
 		<data>
-		jvxqtxybdNgHsnSAbx6vjHBjqoc=
+		ZcCxR7EQY/TsR1CnFaGDs4fFNlo=
 		</data>
-		<key>Headers/DDTTYLogger.h</key>
+		<key>Headers/SimpleLogger.h</key>
 		<data>
-		lSx2ERQ/GS0YmOO1hkqkhzhtZvw=
-		</data>
-		<key>Headers/GCDAsyncUdpSocket.h</key>
-		<data>
-		ku7sOwWoh0UfDhIzC5XLyZxIlJY=
+		oHr+hdtq0sTVEuYyh2Pas29cDWw=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		UNCkfRpm154XL2dmkQ+TnwYh60E=
+		NLbPRh9noxWQxozmlGasDkTwL1U=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
-		Z3uoIghKJohEY/blNpwohZBqnVk=
-		</data>
-		<key>README.txt</key>
-		<data>
-		jluxXI6KDrd1SzA7T/Lp6qeVPR8=
+		QGtZOp46UqeyXJY8bTsl+7JncBY=
 		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
-		<key>Headers/AsyncSocket.h</key>
+		<key>Config.plist</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			O9fhOSWUeTE87UGv9xze7tVHx5I=
+			O+/62mFdrzU/GwNknFovvidTN8g=
 			</data>
 			<key>hash2</key>
 			<data>
-			24uj5FduwBFrp1tGaCEVlxKiCmDBor2pYZfSAJb6CVo=
+			WSVfcV6lh+nV7PXyUvAPYxr8hV4fK5Cnq3ed3PBYWyQ=
 			</data>
 		</dict>
-		<key>Headers/DDLog.h</key>
+		<key>Headers/MWLogging.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			jvxqtxybdNgHsnSAbx6vjHBjqoc=
+			ZcCxR7EQY/TsR1CnFaGDs4fFNlo=
 			</data>
 			<key>hash2</key>
 			<data>
-			bKMqUduxvVWJmshndRsQ6GTiwFVK4w1Zn9dxsofl1As=
+			WmfgvIgZ/xYj6ycBE9i4TW70wbdyZ1hMXxSCOt7txFA=
 			</data>
 		</dict>
-		<key>Headers/DDTTYLogger.h</key>
+		<key>Headers/SimpleLogger.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			lSx2ERQ/GS0YmOO1hkqkhzhtZvw=
+			oHr+hdtq0sTVEuYyh2Pas29cDWw=
 			</data>
 			<key>hash2</key>
 			<data>
-			nWCjZssyFg5aZaAa7yp5OACiROHGMOwPdiizdhafWfo=
-			</data>
-		</dict>
-		<key>Headers/GCDAsyncUdpSocket.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			ku7sOwWoh0UfDhIzC5XLyZxIlJY=
-			</data>
-			<key>hash2</key>
-			<data>
-			rHF93+C8Ovq4f0E2Ny1EDoGaDGAXGXCaO42DOmUid3s=
+			0hawIMO/mWthaJ3BVWg1KBQ1+IOnwTWq8KQ4kEd9+Z4=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Z3uoIghKJohEY/blNpwohZBqnVk=
+			QGtZOp46UqeyXJY8bTsl+7JncBY=
 			</data>
 			<key>hash2</key>
 			<data>
-			l5IPWecMmT5OaeZ/ms5Y5ANNXcUbDk0mgnIILSdKZ4I=
-			</data>
-		</dict>
-		<key>README.txt</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			jluxXI6KDrd1SzA7T/Lp6qeVPR8=
-			</data>
-			<key>hash2</key>
-			<data>
-			ZYd/KoXmGXfR3ifh3uEEZnc8zUI3q/IppdeWJ+0dO8E=
+			QcvH8BbZ6JlcNym09r98S4QqpWn+O/usg7UBD4Gkhd4=
 			</data>
 		</dict>
 	</dict>

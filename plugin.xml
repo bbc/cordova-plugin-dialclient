@@ -4,6 +4,9 @@
     <js-module name="DIALClient" src="www/DIALClient.js">
         <clobbers target="DIALClient" />
     </js-module>
+    <js-module name="Adder" src="www/Adder.js">
+        <clobbers target="Adder" />
+    </js-module>
     <platform name="ios">
       <config-file target="config.xml" parent="/*">
         <feature name="DIALClient">
@@ -16,5 +19,6 @@
       <framework src="src/ios/SimpleLogger.framework" custom="true"/>
       <framework src="src/ios/JSONModelFramework.framework" custom="true"/>
       <framework src="src/ios/DIALDeviceDiscovery.framework" custom="true"/>
+      <framework src="SystemConfiguration.framework" />
 </platform>
 </plugin>

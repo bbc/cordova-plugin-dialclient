@@ -1,7 +1,9 @@
 var exec = require('cordova/exec');
-
 var terminalCounter = 1;
 var discoveredTerminals = {};
+
+
+// var adder = new Adder();
 
 /**
  * A Device object shall have the following properties:
@@ -43,6 +45,8 @@ var DiscoveredTerminal = function(enum_id, friendly_name, X_HbbTV_App2AppURL, X_
  * @constructor
  */
 var dialClient = function(){
+
+
     Object.defineProperty(this, "startDiscovery", {
         get: function () {
             return startDiscovery;
@@ -69,6 +73,10 @@ var dialClient = function(){
  */
 var startDiscovery = function(onDeviceListChanged){
 
+
+    // var mysum = adder.add(2,3);
+
+    // console.log("my sum =" + mysum);
 
     var success = function (deviceList) {
         var res = [];

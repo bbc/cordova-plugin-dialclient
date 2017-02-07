@@ -1,0 +1,25 @@
+{
+  "name": "cordova-dialclient",
+  "version": "0.0.1",
+  "description": "a cordova JS library for device discovery on iOS platforms",
+  "cordova": {
+    "id": "cordova-dialclient",
+    "platforms": [
+      "ios"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/bbc/cordova-plugin-dialclient.git"
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-ios"
+  ],
+  "author": "Rajiv Ramdhany",
+  "license": "Apache 2.0",
+  "bugs": {
+    "url": "https://github.com/bbc/cordova-plugin-dialclient/issues"
+  },
+  "homepage": "https://github.com/bbc/cordova-plugin-dialclient#readme"
+}

@@ -19,11 +19,11 @@ NSString* const kRefreshDiscoveredDevicesNotification =@"RefreshDiscoveredDevice
 
 @interface DIALClient()
 
-  //------------------------------------------------------------------------------
-  #pragma mark - Properties
-  //------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
+#pragma mark - Properties
+//------------------------------------------------------------------------------
 
-  @property (nonatomic)   DIALServiceDiscovery *tvDiscoveryComponent;
+@property (nonatomic)   DIALServiceDiscovery *tvDiscoveryComponent;
 
 
 @end
@@ -34,7 +34,7 @@ NSString* const kRefreshDiscoveredDevicesNotification =@"RefreshDiscoveredDevice
 //------------------------------------------------------------------------------
 @implementation DIALClient
 {
-    NSMutableArray* devices;
+    NSArray* devices;
     NSString *applicationName;
     CDVInvokedUrlCommand* myCommand;
 }
@@ -49,12 +49,12 @@ NSString* const kRefreshDiscoveredDevicesNotification =@"RefreshDiscoveredDevice
     self = [super init];
     if (self != nil) {
 
-      self.tvDiscoveryComponent = [[DIALServiceDiscovery alloc] init];
-      discoveredDevicesList = [[NSMutableArray alloc] init];
+        self.tvDiscoveryComponent = [[DIALServiceDiscovery alloc] init];
+        devices = [[NSMutableArray alloc] init];
 
-      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(DIALServiceDiscoveryNotificationReceived:) name:nil object:self.tvDiscoveryComponent];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(DIALServiceDiscoveryNotificationReceived:) name:nil object:self.tvDiscoveryComponent];
 
-      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(RefreshDiscoveredDevicesNotificationReceived:) name:kRefreshDiscoveredDevicesNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(RefreshDiscoveredDevicesNotificationReceived:) name:kRefreshDiscoveredDevicesNotification object:nil];
 
 
     }
@@ -78,29 +78,48 @@ NSString* const kRefreshDiscoveredDevicesNotification =@"RefreshDiscoveredDevice
 
 - (void)startDiscovery:(CDVInvokedUrlCommand*)command{
 
-    myCommand = command;
-    CDVPluginResult* pluginResult = nil;
 
-    NSString* applicationName = [command.arguments objectAtIndex:0];
+    [self.commandDelegate runInBackground:^{
+        self.tvDiscoveryComponent = [[DIALServiceDiscovery alloc] init];
+        devices = [[NSMutableArray alloc] init];
 
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(DIALServiceDiscoveryNotificationReceived:) name:nil object:self.tvDiscoveryComponent];
 
-    if (applicationName == nil || [applicationName length] == 0) {
-      applicationName = @"HbbTV"
-    }
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(RefreshDiscoveredDevicesNotificationReceived:) name:kRefreshDiscoveredDevicesNotification object:nil];
 
-    self.tvDiscoveryComponent.applicationName = applicationName;
-    [self.tvDiscoveryComponent start];
+        NSLog(@"TEST1");
+        myCommand = command;
+        CDVPluginResult* pluginResult = nil;
 
-
-    devices =  [_tvDiscoveryComponent getDevices];
-
-    pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK
-messageAsString:[_tvDiscoveryComponent getDevicesJSON]];
+        NSString* str = [command.arguments objectAtIndex:0];
 
 
+        if (str == nil || [str length] == 0) {
+            applicationName = @"HbbTV";
+        }else{
+            applicationName = str;
+        }
 
-  [self.commandDelegate sendPluginResult:pluginResult
-  callbackId:command.callbackId];
+        self.tvDiscoveryComponent.applicationName = applicationName;
+
+        [self.tvDiscoveryComponent start];
+        NSLog(@"TEST2");
+
+
+        NSLog(@"TEST3");
+
+        devices =  [_tvDiscoveryComponent getDevices];
+
+//        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK
+//                                         messageAsString:[_tvDiscoveryComponent getDevicesJSON]];
+//
+//
+//
+//        [self.commandDelegate sendPluginResult:pluginResult
+//                                    callbackId:command.callbackId];
+    }];
+
+
 
 
 }
@@ -108,17 +127,14 @@ messageAsString:[_tvDiscoveryComponent getDevicesJSON]];
 //------------------------------------------------------------------------------
 
 - (void) stopDiscovery:(CDVInvokedUrlCommand*)command{
-      CDVPluginResult* pluginResult = nil;
-      [self.tvDiscoveryComponent stop];
 
+    CDVPluginResult* pluginResult = nil;
+    [self.tvDiscoveryComponent stop];
 
+    pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsBool:YES];
 
-
-  pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK
-messageAsBOOL:YES];
-
-[self.commandDelegate sendPluginResult:pluginResult
-callbackId:command.callbackId];
+    [self.commandDelegate sendPluginResult:pluginResult
+                                callbackId:command.callbackId];
 
 
 }
@@ -126,18 +142,19 @@ callbackId:command.callbackId];
 //------------------------------------------------------------------------------
 
 
-- (NSString*) getDevices:(CDVInvokedUrlCommand*)command{
+- (NSString*) getDevices:(CDVInvokedUrlCommand*)command
 {
 
-  CDVPluginResult* pluginResult = nil;
+    CDVPluginResult* pluginResult = nil;
 
-  pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK
-messageAsString:[_tvDiscoveryComponent getDevicesJSON]];
+    pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK
+                                     messageAsString:[_tvDiscoveryComponent getDevicesJSON]];
 
+    [self.commandDelegate sendPluginResult:pluginResult
+                                callbackId:command.callbackId];
 
+    return @"OK";
 
-[self.commandDelegate sendPluginResult:pluginResult
-callbackId:command.callbackId];
 }
 //------------------------------------------------------------------------------
 
@@ -154,14 +171,17 @@ callbackId:command.callbackId];
  */
 - (void) RefreshDiscoveredDevicesNotificationReceived: (NSNotification*) aNotification
 {
+     NSLog(@"DIALClient.m: RefreshDiscoveredDevices notification: %@ received.", [aNotification name]);
+
     CDVPluginResult* pluginResult = nil;
     devices =  [_tvDiscoveryComponent getDevices];
 
     pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK
-messageAsString:[_tvDiscoveryComponent getDevicesJSON]];
+                                     messageAsString:[_tvDiscoveryComponent getDevicesJSON]];
+   [pluginResult setKeepCallbackAsBool:YES];
 
     [self.commandDelegate sendPluginResult:pluginResult
-    callbackId:myCommand.callbackId];
+                                callbackId:myCommand.callbackId];
 }
 
 //------------------------------------------------------------------------------
@@ -169,37 +189,37 @@ messageAsString:[_tvDiscoveryComponent getDevicesJSON]];
 /**
  Handle a received DIALServiceDiscoveryNotifcation
  */
- /** Handler for DIAL service discovery and update notifications */
- - (void) DIALServiceDiscoveryNotifcationReceived:(NSNotification*) aNotification
- {
-     DIALDevice *device;
+/** Handler for DIAL service discovery and update notifications */
+- (void) DIALServiceDiscoveryNotificationReceived:(NSNotification*) aNotification
+{
+    DIALDevice *device;
 
-     //MWLogDebug(@"App Delegate: dial service discovery notification: %@ received.", [aNotification name]);
+    NSLog(@"DIALClient.m: dial service discovery notification: %@ received.", [aNotification name]);
 
-     if ([[aNotification name] caseInsensitiveCompare:kNewDIALDeviceDiscoveryNotification] == 0) {
-         id temp = [[aNotification userInfo] objectForKey:kNewDIALDeviceDiscoveryNotification];
+    if ([[aNotification name] caseInsensitiveCompare:kNewDIALDeviceDiscoveryNotification] == 0) {
+        id temp = [[aNotification userInfo] objectForKey:kNewDIALDeviceDiscoveryNotification];
 
-         if ([temp isKindOfClass: [DIALDevice class]] )
-         {
-             device = (DIALDevice*) temp;
+        if ([temp isKindOfClass: [DIALDevice class]] )
+        {
+            device = (DIALDevice*) temp;
 
-             MWLogDebug(@"App Delegate: Master Device %@ found on network.", device.friendlyName);
+            NSLog(@"DIALClient.m: Master Device %@ found on network.", device.friendlyName);
 
-             [[NSNotificationCenter defaultCenter] postNotificationName:kRefreshDiscoveredDevicesNotification object:nil];
-         }
-
-
-     } else if ([[aNotification name] caseInsensitiveCompare:kDIALDeviceExpiryNotification] == 0)
-     {
-         device = (DIALDevice*) [[aNotification userInfo] objectForKey:kDIALDeviceExpiryNotification];
-
-         MWLogDebug(@"App Delegate: Master Device %@ no longer available.", device.friendlyName);
-
-         [[NSNotificationCenter defaultCenter] postNotificationName:kRefreshDiscoveredDevicesNotification object:nil];
-
-     }
+            [[NSNotificationCenter defaultCenter] postNotificationName:kRefreshDiscoveredDevicesNotification object:nil];
+        }
 
 
+    } else if ([[aNotification name] caseInsensitiveCompare:kDIALDeviceExpiryNotification] == 0)
+    {
+        device = (DIALDevice*) [[aNotification userInfo] objectForKey:kDIALDeviceExpiryNotification];
+
+        NSLog(@"DIALClient.m: Master Device %@ no longer available.", device.friendlyName);
+
+        [[NSNotificationCenter defaultCenter] postNotificationName:kRefreshDiscoveredDevicesNotification object:nil];
+
+    }
+
+}
 //------------------------------------------------------------------------------
 
 

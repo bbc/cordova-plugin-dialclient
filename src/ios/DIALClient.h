@@ -23,7 +23,7 @@
 #import <Cordova/CDV.h>
 
 #import <SimpleLogger/SimpleLogger.h>
-#import <SyncKitConfiguration/SyncKitConfiguration.h>
+
 #import <DIALDeviceDiscovery/DIALDeviceDiscovery.h>
 
 //------------------------------------------------------------------------------
