@@ -20,5 +20,6 @@
       <framework src="src/ios/JSONModelFramework.framework" custom="true"/>
       <framework src="src/ios/DIALDeviceDiscovery.framework" custom="true"/>
       <framework src="SystemConfiguration.framework" />
-</platform>
+    </platform>
+    <hook type="after_plugin_install" src="hooks/add_embedded_ios_frameworks.js" />
 </plugin>
