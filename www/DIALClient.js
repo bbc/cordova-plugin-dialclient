@@ -3,7 +3,11 @@ var terminalCounter = 1;
 var discoveredTerminals = {};
 
 
-// var adder = new Adder();
+// window.onbeforeunload = confirmExit;
+//   function confirmExit()
+//   {
+//     return "You have attempted to leave this page.  If you have made any changes to the fields without clicking the Save button, your changes will be lost.  Are you sure you want to exit this page?";
+//   }
 
 /**
  * A Device object shall have the following properties:
@@ -84,7 +88,7 @@ var startDiscovery = function(onDeviceListChanged){
             var launchUrl = terminal.launchUrl;
             var oldTerminal = discoveredTerminals[launchUrl];
             var enumId = oldTerminal && oldTerminal.enum_id || terminalCounter++;
-            var newTerminal = new DiscoveredTerminal(enumId, terminal.friendlyName, terminal.X_HbbTV_App2AppURL, terminal.X_HbbTV_InterDevSyncURL, terminal.X_HbbTV_UserAgent);
+            var newTerminal = new DiscoveredTerminal(enumId, terminal.friendlyName, terminal.HbbTV_App2AppURL, terminal.HbbTV_InterDevSyncURL, terminal.HbbTV_UserAgent);
             discoveredTerminals[launchUrl] = newTerminal;
             discoveredTerminals[enumId] = terminal;
             res.push(newTerminal);
