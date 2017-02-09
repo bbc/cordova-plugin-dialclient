@@ -76,7 +76,7 @@ var startDiscovery = function(onDeviceListChanged){
 
     var success = function (deviceListJSON) {
 
-        var devicedeviceList = JSON && JSON.parse(deviceListJSON);
+        var deviceList = JSON && JSON.parse(deviceListJSON);
 
         var res = [];
         for(var i=0;i<deviceList.length; i++){
