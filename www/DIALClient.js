@@ -74,11 +74,10 @@ var dialClient = function(){
 var startDiscovery = function(onDeviceListChanged){
 
 
-    // var mysum = adder.add(2,3);
+    var success = function (deviceListJSON) {
 
-    // console.log("my sum =" + mysum);
+        var devicedeviceList = JSON && JSON.parse(deviceListJSON);
 
-    var success = function (deviceList) {
         var res = [];
         for(var i=0;i<deviceList.length; i++){
             var terminal = deviceList[i];

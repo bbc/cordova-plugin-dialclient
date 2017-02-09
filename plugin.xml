@@ -4,10 +4,7 @@
     <js-module name="DIALClient" src="www/DIALClient.js">
         <clobbers target="DIALClient" />
     </js-module>
-    <js-module name="Adder" src="www/Adder.js">
-        <clobbers target="Adder" />
-    </js-module>
-    <platform name="ios">
+      <platform name="ios">
       <config-file target="config.xml" parent="/*">
         <feature name="DIALClient">
           <param name="ios-package" value="DIALClient" />
@@ -19,7 +16,6 @@
       <framework src="src/ios/SimpleLogger.framework" custom="true"/>
       <framework src="src/ios/JSONModelFramework.framework" custom="true"/>
       <framework src="src/ios/DIALDeviceDiscovery.framework" custom="true"/>
-      <framework src="SystemConfiguration.framework" />
     </platform>
     <hook type="after_plugin_install" src="hooks/add_embedded_ios_frameworks.js" />
 </plugin>
