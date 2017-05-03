@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/DIALDevice.h</key>
 		<data>
-		Gg1J4PyxNJZf5crBj0zd81DcLAk=
+		D4Cv3LxJ+AJAk/54XntrWPmbG8M=
 		</data>
 		<key>Headers/DIALDeviceDiscovery.h</key>
 		<data>
@@ -50,7 +50,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		Z9VkAqcTSDTu52VFPtB1OcakZ6o=
+		rPxffJZztRRyloGLKw5w8TEqUPk=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -63,11 +63,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Gg1J4PyxNJZf5crBj0zd81DcLAk=
+			D4Cv3LxJ+AJAk/54XntrWPmbG8M=
 			</data>
 			<key>hash2</key>
 			<data>
-			twcEMxGCcQaLWqQjDfFTOcNYQFLiLCh4Rji0hCXwJBg=
+			3cTUc3j1h+uf8DgYfGxUFFGo7fG6A82V6GjqxLCzLZ0=
 			</data>
 		</dict>
 		<key>Headers/DIALDeviceDiscovery.h</key>
@@ -210,6 +210,11 @@
 			<key>weight</key>
 			<real>1100</real>
 		</dict>
+		<key>^Base\.lproj/</key>
+		<dict>
+			<key>weight</key>
+			<real>1010</real>
+		</dict>
 		<key>^version.plist$</key>
 		<true/>
 	</dict>
@@ -254,6 +259,11 @@
 			<true/>
 			<key>weight</key>
 			<real>1100</real>
+		</dict>
+		<key>^Base\.lproj/</key>
+		<dict>
+			<key>weight</key>
+			<real>1010</real>
 		</dict>
 		<key>^Info\.plist$</key>
 		<dict>

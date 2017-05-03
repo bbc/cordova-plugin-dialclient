@@ -115,6 +115,12 @@ FOUNDATION_EXPORT NSString* const kDIALDevice_PresentationURLKey ;
 @property(readonly, nonatomic) NSString *serialNumber;
 @property(readonly, nonatomic) NSString *UDN;
 @property(readonly, nonatomic) NSString *presentationURL;
+@property(readonly, nonatomic) NSString *appXML;
+@property(readonly, nonatomic) NSString *X_2Immerse_ContextId;
+@property(readonly, nonatomic) NSString *X_2Immerse_DeviceId;
+@property(readonly, nonatomic) NSString *X_2Immerse_InterContextId;
+@property(readonly, nonatomic) NSString *X_2Immerse_InstanceId;
+
 
 
 //------------------------------------------------------------------------------
