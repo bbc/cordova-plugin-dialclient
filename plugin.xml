@@ -15,6 +15,6 @@
       </config-file>
       <header-file src="src/ios/DIALClient.h" />
       <source-file src="src/ios/DIALClient.m" />
-      <pod name="'dial-discovery-ios" git="https://github.com/bbc/dial-discovery-ios.git" branch="master" />
+      <pod name="dial-discovery-ios" git="https://github.com/bbc/dial-discovery-ios.git" branch="master" />
     </platform>
 </plugin>
