@@ -12,10 +12,6 @@
       </config-file>
       <header-file src="src/ios/DIALClient.h" />
       <source-file src="src/ios/DIALClient.m" />
-      <framework src="src/ios/AsyncSocket.framework" custom="true"/>
-      <framework src="src/ios/SimpleLogger.framework" custom="true"/>
-      <framework src="src/ios/JSONModelFramework.framework" custom="true"/>
-      <framework src="src/ios/DIALDeviceDiscovery.framework" custom="true"/>
+      <pod name="'dial-discovery-ios" git="https://github.com/bbc/dial-discovery-ios.git" branch="master" />
     </platform>
-    <hook type="after_plugin_install" src="hooks/add_embedded_ios_frameworks.js" />
 </plugin>
