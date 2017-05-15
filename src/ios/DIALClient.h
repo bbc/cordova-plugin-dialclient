@@ -22,9 +22,8 @@
 #import <Foundation/Foundation.h>
 #import <Cordova/CDV.h>
 
-#import <SimpleLogger/SimpleLogger.h>
-
-#import <DIALDeviceDiscovery/DIALDeviceDiscovery.h>
+#import <dial_discovery_ios/DIALGlobals.h>
+#import <dial_discovery_ios/DIALServiceDiscovery.h>
 
 //------------------------------------------------------------------------------
 #pragma mark - Data Structures
