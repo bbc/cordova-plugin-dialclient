@@ -1,6 +1,0 @@
-framework module DIALDeviceDiscovery {
-  umbrella header "DIALDeviceDiscovery.h"
-
-  export *
-  module * { export * }
-}
