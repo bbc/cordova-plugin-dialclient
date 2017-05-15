@@ -4,7 +4,8 @@
     <js-module name="DIALClient" src="www/DIALClient.js">
         <clobbers target="DIALClient" />
     </js-module>
-      <platform name="ios">
+    <dependency id="cordova-plugin-cocoapod-support"/>
+    <platform name="ios">
       <config-file target="config.xml" parent="/*">
         <feature name="DIALClient">
           <param name="ios-package" value="DIALClient" />
