@@ -6,6 +6,8 @@
     </js-module>
     <dependency id="cordova-plugin-cocoapod-support"/>
     <platform name="ios">
+      <pods-config ios-min-version="9.0" use-frameworks="true">
+      </pods-config>
       <config-file target="config.xml" parent="/*">
         <feature name="DIALClient">
           <param name="ios-package" value="DIALClient" />
