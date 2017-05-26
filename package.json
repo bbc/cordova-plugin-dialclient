@@ -1,9 +1,9 @@
 {
-  "name": "cordova-dialclient",
+  "name": "cordova-plugin-dialclient",
   "version": "0.0.1",
   "description": "a cordova JS library for device discovery on iOS platforms",
   "cordova": {
-    "id": "cordova-dialclient",
+    "id": "cordova-plugin-dialclient",
     "platforms": [
       "ios"
     ]
